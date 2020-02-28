@@ -1,0 +1,17 @@
+//https://github.com/niklasnson/TSIU02
+/*
+ * Map_plott.asm
+ *
+ *  Created: 2020-02-28 16:10:01
+ *   Author: maxgl256
+ */ 
+
+
+; Skapa en array i tio bits, (x.byte 1, y.byte 1) x slut vid tio. 
+; Spara nummer i array, bytes, 
+; Gå igenom en bit array i SRAM och skicka till, jämför med nuvarande kordinat. Skicka till plotter, håll koll på X & Y
+; Testa genom att datan som skickas är i rätt storlek. 
+
+
+
+
