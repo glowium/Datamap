@@ -12,6 +12,39 @@
 ; Gå igenom en bit array i SRAM och skicka till, jämför med nuvarande kordinat. Skicka till plotter, håll koll på X & Y
 ; Testa genom att datan som skickas är i rätt storlek. 
 
+///////////////////////////////5/3////////////////////
+MAP_PLOT:
+;.equ VMEM_SZ = 5 ; # rows on display /Ska nog ändras
+;.equ AD_CHAN_X = 0 ; ADC0 = PA0 , PORTA bit 0 X - led
+;.equ AD_CHAN_Y = 1 ; ADC1 = PA1 , PORTA bit 1 Y - led
+
+; --- Memory layout in SRAM
+.dseg
+.org SRAM_START
+POSX : .byte 1 ; Own position
+POSY : .byte 1
+YVALUE:  .byte 10 
+;TPOSX : .byte 1 ; Target position
+;TPOSY : .byte 1
+;LINE : .byte 1 ; Current line
+;VMEM : .byte VMEM_SZ ; Video MEMory
+;SEED : .byte 1 ; Seed for Random
+.cseg
+
+START: 
+ldi r24, 0 
+ldi r25, 10
+ldi zl, low(YVALUE)
+ldi zh, high(YVALUE)
+
+LOOP: 
+LPM r24, Z+
+dec r25
+brne LOOP
+
+//Skicka y värdet 
+/////////////////////////////////////////////
+
 
 
 
